@@ -1,0 +1,75 @@
+{
+  "partnerName": "My Love",
+  "yourName": "Me",
+  "greetingSplash": "Hi love, welcome back ❤️",
+  "relationshipStartDate": "2026-03-21T00:00:00",
+  "birthday": {
+    "month": 9,
+    "day": 21,
+    "title": "A Special Birthday Letter Just For You 🎂",
+    "letter": "Happy Birthday to the most incredible person in my life! Every single day with you is filled with warmth, laughter, and so much love. Today is all about celebrating the wonderful human you are. Thank you for being my favorite adventure, my sweetest comfort, and my brightest light. Here's to making this year the most magical one yet!",
+    "quote": "In all the world, there is no heart for me like yours. In all the world, there is no love for you like mine."
+  },
+  "reasonsToLove": [
+    "You laugh at my jokes no matter how lame they are.",
+    "You already have a nickname for me and I still don't know where it came from.",
+    "You make ordinary errands feel like plans.",
+    "You text back one-word answers, but they always feel meaningful.",
+    "You remember small things I mentioned exactly once.",
+    "You have strong opinions about random gossip, and I find that so amusing.",
+    "You make me want to be better at calling.",
+    "You're so competitive that it makes me want to let you win (sometimes).",
+    "You have a face for every emotion — no filter required.",
+    "You make quiet time feel like the good kind of quiet.",
+    "You've somehow passed my group chat's approval from the first moment.",
+    "You take the last bite off my plate without asking, and I let you.",
+    "You've turned an ordinary weekday into something to look forward to.",
+    "You send me things that made you think of me, completely unprompted.",
+    "You have a whole personality when you're tired or hungry, and it's a good bit.",
+    "You make me laugh at things that genuinely aren't that funny.",
+    "You've already survived meeting my weird side.",
+    "It's been a month and it still doesn't feel like enough time.",
+    "You've ruined other people's cooking for me (pasta).",
+    "You ask great questions in the middle of a movie, and I still try to answer.",
+    "You've never made me feel strange for being a bit much.",
+    "One month in, and you already know how I take my coffee.",
+    "You've single-handedly made me into a professional photographer.",
+    "You're always down to try something new, no matter how weird it is.",
+    "You still get butterflies when I compliment you.",
+    "You're the only person I want to watch reality TV with.",
+    "You make even the most boring tasks feel fun.",
+    "You've learned all my weird quirks and somehow still like me.",
+    "You're the first person I want to tell good news to.",
+    "You've already made me laugh more in a month than I have in years."
+  ],
+  "coupons": [
+    { "id": "c1", "seal": "01", "title": "One movie night", "hint": "your pick, no vetoes" },
+    { "id": "c2", "seal": "02", "title": "Breakfast in bed", "hint": "redeemable any weekend" },
+    { "id": "c3", "seal": "03", "title": "One 'I was right' pass", "hint": "use wisely" },
+    { "id": "c4", "seal": "04", "title": "A playlist made for you", "hint": "delivered within a week" },
+    { "id": "c5", "seal": "05", "title": "No-phones dinner", "hint": "full attention, guaranteed" },
+    { "id": "c6", "seal": "06", "title": "Your choice of restaurant", "hint": "I won't complain, this time" }
+  ],
+  "quiz": [
+    {
+      "q": "Where did we first properly talk?",
+      "options": ["Parcafe", "Harrods", "Hyde Park"],
+      "correct": 0
+    },
+    {
+      "q": "What did I order on our first date?",
+      "options": ["Flat white", "Hot Chocolate", "Latte"],
+      "correct": 0
+    },
+    {
+      "q": "What's my go-to comfort food?",
+      "options": ["Cornflakes", "Daal Chawal", "Both"],
+      "correct": 2
+    },
+    {
+      "q": "What's a song we always sing (I still don't know the lyrics :( )?",
+      "options": ["I Really Do...", "Admirin' You", "Winning Speech"],
+      "correct": 2
+    }
+  ]
+}

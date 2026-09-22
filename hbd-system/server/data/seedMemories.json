@@ -1,0 +1,225 @@
+[
+  {
+    "id": "mem-01",
+    "date": "2026-03-21",
+    "title": "The First Cafe Date",
+    "story": "We went to my favourite cafe in the city, Parcafe. I ordered my usual flat white, and I knew right then this was something truly special when I didn't mind that you were late.",
+    "location": "Parcafe",
+    "photos": [
+      "/uploads/PXL_20260616_202304977.jpg"
+    ],
+    "song": {
+      "name": "Winning Speech",
+      "artist": "Karan Aujla",
+      "albumArt": "https://i.scdn.co/image/ab67616d0000b273b40cfb6388eeb058d9283e1c",
+      "uri": "spotify:track:1vYxhvVqJoxeBq4Xl7U9F6",
+      "id": "1vYxhvVqJoxeBq4Xl7U9F6"
+    }
+  },
+  {
+    "id": "mem-02",
+    "date": "2026-03-28",
+    "title": "Yap Sessions & Endless Coffee",
+    "story": "First full week in — had your coffee and immediately started letting me yap away about random things without a single complaint. Just smiling and listening to every word.",
+    "location": "Harrods",
+    "photos": [
+      "/uploads/PXL_20260618_141253490.jpg"
+    ],
+    "song": null
+  },
+  {
+    "id": "mem-03",
+    "date": "2026-04-04",
+    "title": "Biryani & Bhojpuri Songs",
+    "story": "We shared our first biryani together and you told me all about your tattoos. Little did I know you were going to force me to watch Bhojpuri songs right after!",
+    "location": "Our favorite dining spot",
+    "photos": [
+      "/uploads/PXL_20260618_185655184.jpg"
+    ],
+    "song": null
+  },
+  {
+    "id": "mem-04",
+    "date": "2026-04-12",
+    "title": "Museum Day & Old School Fits",
+    "story": "The museum trip was hands-down the highlight of the week. You looked ridiculously good with the old school outfits hehe.",
+    "location": "Museum",
+    "photos": [
+      "/uploads/PXL_20260701_165604413.jpg"
+    ],
+    "song": null
+  },
+  {
+    "id": "mem-05",
+    "date": "2026-04-19",
+    "title": "The Mini-Me Era",
+    "story": "You officially became a mini-me with my oversized hoodie and joggers on awwwww. Best outfit ever.",
+    "location": "Cozy living room",
+    "photos": [
+      "/uploads/PXL_20260709_233509517~2.jpg"
+    ],
+    "song": null
+  },
+  {
+    "id": "mem-06",
+    "date": "2026-04-26",
+    "title": "Sunday 9am Ferrari Viewer",
+    "story": "You dressed like a full Ferrari viewer at 9am on a Sunday morning and I still can't get over how adorable that was lol.",
+    "location": "Sunday morning coffee",
+    "photos": [
+      "/uploads/20260710_012308.jpg"
+    ],
+    "song": null
+  },
+  {
+    "id": "mem-07",
+    "date": "2026-05-03",
+    "title": "The Cookie Dough Look",
+    "story": "I still vividly remember the pure joy on your face looking at that warm skillet cookie dough.",
+    "location": "Dessert parlor",
+    "photos": [
+      "/uploads/PXL_20260616_202304977.jpg"
+    ],
+    "song": null
+  },
+  {
+    "id": "mem-08",
+    "date": "2026-05-10",
+    "title": "Photobooth Madness",
+    "story": "Our first photobooth pictures! We also found out what you're like as an interviewer... totally didn't take 3 full takes.",
+    "location": "Photobooth arcade",
+    "photos": [
+      "/uploads/PXL_20260618_185655184.jpg",
+      "/uploads/PXL_20260709_233509517~2.jpg"
+    ],
+    "song": null
+  },
+  {
+    "id": "mem-09",
+    "date": "2026-05-18",
+    "title": "Meeting the Friends",
+    "story": "You met my friend for the first time and he already loves you more than me! You win over everyone you meet.",
+    "location": "Park gathering",
+    "photos": [
+      "/uploads/PXL_20260618_141253490.jpg"
+    ],
+    "song": null
+  },
+  {
+    "id": "mem-10",
+    "date": "2026-05-25",
+    "title": "Miles Apart, Smiling Together",
+    "story": "Every morning text from you made my day start with the biggest smile. Even though we were thousands of miles apart.",
+    "location": "Facetime calls",
+    "photos": [
+      "/uploads/20260710_012308.jpg"
+    ],
+    "song": null
+  },
+  {
+    "id": "mem-11",
+    "date": "2026-06-02",
+    "title": "Next Photoshoot Scout",
+    "story": "Still apart for a bit, but scouting our next photoshoot spots. Counting down the seconds.",
+    "location": "Scouting London spots",
+    "photos": [
+      "/uploads/PXL_20260701_165604413.jpg"
+    ],
+    "song": null
+  },
+  {
+    "id": "mem-12",
+    "date": "2026-06-09",
+    "title": "A Lifetime of Kisses",
+    "story": "The most romantic thing in the world is getting to hold you and kiss you for a lifetime.",
+    "location": "Hyde park golden hour",
+    "photos": [
+      "/uploads/PXL_20260709_233509517~2.jpg"
+    ],
+    "song": null
+  },
+  {
+    "id": "mem-13",
+    "date": "2026-06-16",
+    "title": "The Fit Check Reaction",
+    "story": "I saw your fit check for girls' night out and had to drop everything to let out my full reaction... absolute perfection.",
+    "location": "Evening out",
+    "photos": [
+      "/uploads/PXL_20260616_202304977.jpg"
+    ],
+    "song": null
+  },
+  {
+    "id": "mem-14",
+    "date": "2026-06-23",
+    "title": "Official Hairstylist Appointed",
+    "story": "You already know what this week was about... you are in full charge of my hairstyle from now until forever.",
+    "location": "The mirror check",
+    "photos": [
+      "/uploads/PXL_20260618_141253490.jpg"
+    ],
+    "song": null
+  },
+  {
+    "id": "mem-15",
+    "date": "2026-07-01",
+    "title": "Hotwheels & Reunited At Last",
+    "story": "HOTWHEELS SET! Finally got to see you again after what felt like an eternity of waiting. The joy of being in your arms was unreal. The flowers, chocolates, and holding you tight.",
+    "location": "Airport welcome",
+    "photos": [
+      "/uploads/PXL_20260701_165604413.jpg"
+    ],
+    "song": null
+  },
+  {
+    "id": "mem-16",
+    "date": "2026-07-09",
+    "title": "House Events & Soft Launches",
+    "story": "Can't believe I went to a house event! But with you by my side, even things I'd never normally do turn into the best nights.",
+    "location": "House gathering",
+    "photos": [
+      "/uploads/PXL_20260709_233509517~2.jpg"
+    ],
+    "song": null
+  },
+  {
+    "id": "mem-17",
+    "date": "2026-07-16",
+    "title": "Bridgerton-esque Photoshoot",
+    "story": "The day of our regal Bridgerton-esque shoot. Royal vibes and laughs between every single shutter snap.",
+    "location": "Regents Park",
+    "photos": [
+      "/uploads/20260710_012308.jpg"
+    ],
+    "song": null
+  },
+  {
+    "id": "mem-18",
+    "date": "2026-08-01",
+    "title": "The Married Couple Life",
+    "story": "We are pretty much acting like a married couple and I wouldn't trade a single second. Cooking together, grocery runs, and constant giggles.",
+    "location": "Home sweet home",
+    "photos": [
+      "/uploads/PXL_20260618_185655184.jpg"
+    ],
+    "song": null
+  },
+  {
+    "id": "mem-19",
+    "date": "2026-09-21",
+    "title": "Best Time of My Life & Happy Birthday!",
+    "story": "This has been the best time of my life. Every single day you make me want to be a better man for us. Celebrating your birthday today is the greatest celebration of all.",
+    "location": "Everywhere with you",
+    "photos": [
+      "/uploads/PXL_20260616_202304977.jpg",
+      "/uploads/PXL_20260701_165604413.jpg"
+    ],
+    "song": {
+      "name": "Winning Speech",
+      "artist": "Karan Aujla",
+      "albumArt": "https://i.scdn.co/image/ab67616d0000b273b40cfb6388eeb058d9283e1c",
+      "uri": "spotify:track:1vYxhvVqJoxeBq4Xl7U9F6",
+      "id": "1vYxhvVqJoxeBq4Xl7U9F6"
+    }
+  }
+]

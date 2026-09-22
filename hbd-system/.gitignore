@@ -1,0 +1,49 @@
+# ==============================================================================
+# Birthday Memory Site — Git Ignore
+# Excludes images and node_modules while ensuring zero data loss for memories
+# ==============================================================================
+
+# Images & Media
+*.jpg
+*.jpeg
+*.png
+*.webp
+*.gif
+*.heic
+*.heif
+*.bmp
+*.tiff
+*.raw
+*.ico
+*.mp4
+*.mov
+
+# Keep uploads folder structure via .gitkeep
+uploads/*
+!uploads/.gitkeep
+
+# Dependencies & Logs
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+
+# Environment & Secrets (keep template .env.example)
+.env
+.env.local
+.env.*.local
+!.env.example
+
+# OS & Editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# Temporary files
+*.tmp
+*.temp
+
+# Explicitly ensure core data files are always tracked
+!server/data/store.json
+!server/data/personalConfig.json
+!server/data/seedMemories.json

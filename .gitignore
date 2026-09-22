@@ -1,0 +1,78 @@
+# ==============================================================================
+# Git Ignore Configuration
+# Minimizes repository size and data loss for easy multi-machine sync
+# ==============================================================================
+
+# ------------------------------------------------------------------------------
+# 1. Image & Media Files (Excluded to keep repository lightweight)
+# ------------------------------------------------------------------------------
+*.jpg
+*.jpeg
+*.png
+*.webp
+*.gif
+*.heic
+*.heif
+*.bmp
+*.tiff
+*.raw
+*.ico
+*.mp4
+*.mov
+*.avi
+*.mp3
+*.wav
+
+# Preserve uploads folder structure across machines
+uploads/*
+!uploads/.gitkeep
+hbd-system/uploads/*
+!hbd-system/uploads/.gitkeep
+
+# ------------------------------------------------------------------------------
+# 2. Dependencies & Build Artifacts (Installed per-machine via npm install)
+# ------------------------------------------------------------------------------
+node_modules/
+*/node_modules/
+package-lock.json.tmp
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# ------------------------------------------------------------------------------
+# 3. Environment & Secrets (Keep .env.example tracked as a template)
+# ------------------------------------------------------------------------------
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+!.env.example
+!*/.env.example
+
+# ------------------------------------------------------------------------------
+# 4. OS & IDE System Files
+# ------------------------------------------------------------------------------
+.DS_Store
+Thumbs.db
+ehthumbs.db
+desktop.ini
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
+
+# ------------------------------------------------------------------------------
+# 5. Temporary & Backup Files
+# ------------------------------------------------------------------------------
+*.tmp
+*.temp
+*.bak
+*~
+
+# ------------------------------------------------------------------------------
+# 6. Explicitly Tracked Data Files (Never lose memories, configs, or seed data)
+# ------------------------------------------------------------------------------
+!hbd-system/server/data/store.json
+!hbd-system/server/data/personalConfig.json
+!hbd-system/server/data/seedMemories.json

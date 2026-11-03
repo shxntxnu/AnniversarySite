@@ -1,116 +1,251 @@
 /**
- * Typed API Client for backend communication
+ * 100% Static Client-Side API & Storage Engine
+ * Runs completely in the browser for GitHub Pages without requiring a backend server.
  */
 
-async function request(endpoint, options = {}) {
-  const defaultHeaders = {};
-  if (!(options.body instanceof FormData)) {
-    defaultHeaders['Content-Type'] = 'application/json';
-  }
+import { personalConfig, initialMemories, VALID_USERS } from './data/staticData.js';
+import { resolvePhotoUrl } from './utils/paths.js';
 
-  const config = {
-    ...options,
-    headers: {
-      ...defaultHeaders,
-      ...(options.headers || {})
-    },
-    credentials: 'include' // Send httpOnly cookies
-  };
+const STORAGE_KEYS = {
+  SESSION: 'hbd_user_session',
+  MEMORIES: 'hbd_memories_data',
+  CONFIG: 'hbd_personal_config'
+};
 
+// Helper: load stored memories or initialize from static seed
+function getStoredMemories() {
   try {
-    const res = await fetch(endpoint, config);
-    const data = await res.json().catch(() => ({}));
-
-    if (!res.ok) {
-      const error = new Error(data.error || `Request failed with status ${res.status}`);
-      error.status = res.status;
-      error.data = data;
-      throw error;
+    const raw = localStorage.getItem(STORAGE_KEYS.MEMORIES);
+    if (raw) {
+      const parsed = JSON.parse(raw);
+      if (Array.isArray(parsed) && parsed.length > 0) {
+        return parsed;
+      }
     }
-
-    return data;
-  } catch (err) {
-    if (err.status === 401 && !endpoint.includes('/api/auth/login')) {
-      // Trigger session expiration event
-      window.dispatchEvent(new CustomEvent('session-expired'));
-    }
-    throw err;
+  } catch (e) {
+    console.warn('Error reading memories from localStorage, using seed data:', e);
   }
+
+  // First time initialization: seed from static data
+  localStorage.setItem(STORAGE_KEYS.MEMORIES, JSON.stringify(initialMemories));
+  return [...initialMemories];
+}
+
+function saveStoredMemories(memories) {
+  localStorage.setItem(STORAGE_KEYS.MEMORIES, JSON.stringify(memories));
+}
+
+// Helper: load stored personal config or initialize from static seed
+function getStoredConfig() {
+  try {
+    const raw = localStorage.getItem(STORAGE_KEYS.CONFIG);
+    if (raw) {
+      return { ...personalConfig, ...JSON.parse(raw) };
+    }
+  } catch (e) {
+    console.warn('Error reading config from localStorage, using seed:', e);
+  }
+  return { ...personalConfig };
+}
+
+function saveStoredConfig(config) {
+  localStorage.setItem(STORAGE_KEYS.CONFIG, JSON.stringify(config));
 }
 
 export const api = {
-  // Auth
-  login: (username, password) =>
-    request('/api/auth/login', {
-      method: 'POST',
-      body: JSON.stringify({ username, password })
-    }),
+  // Authentication
+  login: async (username, password) => {
+    // Artificial small delay for polished UI feel
+    await new Promise((r) => setTimeout(r, 200));
 
-  logout: () =>
-    request('/api/auth/logout', {
-      method: 'POST'
-    }),
+    const u = (username || '').trim().toLowerCase();
+    const p = (password || '').trim();
 
-  getMe: () =>
-    request('/api/auth/me'),
+    const matchedUser = VALID_USERS.find(
+      (user) => user.username.toLowerCase() === u && user.password === p
+    );
+
+    if (!matchedUser) {
+      const err = new Error('Incorrect username or password');
+      err.status = 401;
+      throw err;
+    }
+
+    const sessionUser = {
+      username: matchedUser.username,
+      role: matchedUser.role,
+      name: matchedUser.name,
+      spotifyConnected: false
+    };
+
+    localStorage.setItem(STORAGE_KEYS.SESSION, JSON.stringify(sessionUser));
+    return {
+      success: true,
+      user: sessionUser
+    };
+  },
+
+  logout: async () => {
+    localStorage.removeItem(STORAGE_KEYS.SESSION);
+    return { success: true };
+  },
+
+  getMe: async () => {
+    const rawSession = localStorage.getItem(STORAGE_KEYS.SESSION);
+    if (!rawSession) {
+      const err = new Error('No active session');
+      err.status = 401;
+      throw err;
+    }
+
+    try {
+      const user = JSON.parse(rawSession);
+      return {
+        success: true,
+        user,
+        personal: getStoredConfig()
+      };
+    } catch (e) {
+      localStorage.removeItem(STORAGE_KEYS.SESSION);
+      const err = new Error('Invalid session');
+      err.status = 401;
+      throw err;
+    }
+  },
 
   // Memories
-  getMemories: (sort = 'asc') =>
-    request(`/api/memories?sort=${sort}`),
-
-  getOnThisDay: (month, day) => {
-    const params = new URLSearchParams();
-    if (month) params.append('month', month);
-    if (day) params.append('day', day);
-    return request(`/api/memories/on-this-day?${params.toString()}`);
-  },
-
-  getMemoryById: (id) =>
-    request(`/api/memories/${id}`),
-
-  createMemory: (memoryData) =>
-    request('/api/memories', {
-      method: 'POST',
-      body: JSON.stringify(memoryData)
-    }),
-
-  updateMemory: (id, memoryData) =>
-    request(`/api/memories/${id}`, {
-      method: 'PUT',
-      body: JSON.stringify(memoryData)
-    }),
-
-  deleteMemory: (id) =>
-    request(`/api/memories/${id}`, {
-      method: 'DELETE'
-    }),
-
-  // Photos
-  uploadPhotos: (files) => {
-    const formData = new FormData();
-    for (const file of files) {
-      formData.append('photos', file);
-    }
-    return request('/api/upload', {
-      method: 'POST',
-      body: formData
+  getMemories: async (sort = 'asc') => {
+    const memories = getStoredMemories();
+    const sorted = [...memories].sort((a, b) => {
+      const dateA = new Date(a.date).getTime();
+      const dateB = new Date(b.date).getTime();
+      return sort === 'desc' ? dateB - dateA : dateA - dateB;
     });
+
+    return {
+      success: true,
+      data: sorted
+    };
   },
 
-  // Spotify
-  searchSpotify: (q) =>
-    request(`/api/spotify/search?q=${encodeURIComponent(q)}`),
+  getOnThisDay: async (month, day) => {
+    const memories = getStoredMemories();
+    const now = new Date();
+    const targetMonth = month ? parseInt(month, 10) : now.getMonth() + 1;
+    const targetDay = day ? parseInt(day, 10) : now.getDate();
 
-  getSpotifyToken: () =>
-    request('/api/spotify/token'),
+    // Check for exact month & day match
+    const matches = memories.filter((mem) => {
+      if (!mem.date) return false;
+      const d = new Date(mem.date);
+      return d.getMonth() + 1 === targetMonth && d.getDate() === targetDay;
+    });
+
+    if (matches.length > 0) {
+      return { success: true, data: matches };
+    }
+
+    // Romantic fallback: feature the most recent milestone memory
+    const sortedDesc = [...memories].sort(
+      (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
+    );
+    const fallback = sortedDesc.slice(0, 1);
+    return { success: true, data: fallback };
+  },
+
+  getMemoryById: async (id) => {
+    const memories = getStoredMemories();
+    const found = memories.find((m) => m.id === id);
+    if (!found) {
+      const err = new Error('Memory not found');
+      err.status = 404;
+      throw err;
+    }
+    return { success: true, data: found };
+  },
+
+  createMemory: async (memoryData) => {
+    const memories = getStoredMemories();
+    const newMemory = {
+      id: 'mem-' + Date.now() + '-' + Math.random().toString(36).substr(2, 5),
+      createdAt: new Date().toISOString(),
+      updatedAt: new Date().toISOString(),
+      ...memoryData
+    };
+    memories.push(newMemory);
+    saveStoredMemories(memories);
+    return { success: true, data: newMemory };
+  },
+
+  updateMemory: async (id, memoryData) => {
+    const memories = getStoredMemories();
+    const index = memories.findIndex((m) => m.id === id);
+    if (index === -1) {
+      const err = new Error('Memory not found');
+      err.status = 404;
+      throw err;
+    }
+    memories[index] = {
+      ...memories[index],
+      ...memoryData,
+      updatedAt: new Date().toISOString()
+    };
+    saveStoredMemories(memories);
+    return { success: true, data: memories[index] };
+  },
+
+  deleteMemory: async (id) => {
+    let memories = getStoredMemories();
+    memories = memories.filter((m) => m.id !== id);
+    saveStoredMemories(memories);
+    return { success: true };
+  },
+
+  // Photos (client-side base64 uploader)
+  uploadPhotos: async (files) => {
+    const readAsDataURL = (file) =>
+      new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.onload = () => resolve(reader.result);
+        reader.onerror = reject;
+        reader.readAsDataURL(file);
+      });
+
+    const photoUrls = await Promise.all(Array.from(files).map(readAsDataURL));
+    return {
+      success: true,
+      photos: photoUrls
+    };
+  },
+
+  // Spotify (Static integration: embed player)
+  searchSpotify: async (q) => {
+    return {
+      success: true,
+      tracks: []
+    };
+  },
+
+  getSpotifyToken: async () => {
+    // In static mode, signals player to use the official Spotify Embed Player directly
+    return { success: false, accessToken: null };
+  },
 
   // Personal Configuration
-  getConfig: () =>
-    request('/api/config'),
+  getConfig: async () => {
+    return {
+      success: true,
+      data: getStoredConfig()
+    };
+  },
 
-  updateConfig: (updates) =>
-    request('/api/config', {
-      method: 'PUT',
-      body: JSON.stringify(updates)
-    })
+  updateConfig: async (updates) => {
+    const current = getStoredConfig();
+    const updated = { ...current, ...updates };
+    saveStoredConfig(updated);
+    return {
+      success: true,
+      data: updated
+    };
+  }
 };

@@ -1,5 +1,6 @@
 import { state } from '../state.js';
 import { formatDate } from '../utils/dateUtils.js';
+import { resolvePhotoUrl } from '../utils/paths.js';
 import { renderSpotifyPlayer } from './spotifyPlayer.js';
 
 /**
@@ -17,9 +18,10 @@ export function openMemoryDetail(memory, { onEdit, onDelete, onClose }) {
     document.body.appendChild(backdrop);
   }
 
-  const photos = Array.isArray(memory.photos) && memory.photos.length > 0
+  const rawPhotos = Array.isArray(memory.photos) && memory.photos.length > 0
     ? memory.photos
-    : ['/uploads/PXL_20260616_202304977.jpg'];
+    : ['./uploads/PXL_20260616_202304977.jpg'];
+  const photos = rawPhotos.map((p) => resolvePhotoUrl(p));
 
   backdrop.innerHTML = `
     <div class="modal-card">

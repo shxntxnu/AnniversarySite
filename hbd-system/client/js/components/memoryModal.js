@@ -1,5 +1,6 @@
 import { api } from '../api.js';
 import { state } from '../state.js';
+import { resolvePhotoUrl } from '../utils/paths.js';
 import { showToast } from './toast.js';
 
 /**
@@ -163,7 +164,7 @@ export function openMemoryModal(memoryToEdit = null, onSaveSuccess) {
   function renderPreviews() {
     previewGrid.innerHTML = photos.map((src, idx) => `
       <div class="photo-preview-item" title="${src}">
-        <img src="${src}" alt="Preview ${idx + 1}" />
+        <img src="${resolvePhotoUrl(src)}" alt="Preview ${idx + 1}" />
         <button type="button" class="photo-remove-btn" data-index="${idx}" title="Remove photo">✕</button>
       </div>
     `).join('');
@@ -229,7 +230,7 @@ export function openMemoryModal(memoryToEdit = null, onSaveSuccess) {
   // Song selection UI
   function updateSongCard() {
     if (attachedSong) {
-      selArt.src = attachedSong.albumArt || '/uploads/PXL_20260616_202304977.jpg';
+      selArt.src = attachedSong.albumArt || './uploads/PXL_20260616_202304977.jpg';
       selTitle.textContent = attachedSong.name || 'Unknown Track';
       selArtist.textContent = attachedSong.artist || 'Unknown Artist';
       selectedSongCard.style.display = 'block';
@@ -290,7 +291,7 @@ export function openMemoryModal(memoryToEdit = null, onSaveSuccess) {
         uri: `spotify:track:${directTrackId}`,
         name: 'Spotify Track',
         artist: 'Attached via Link',
-        albumArt: '/uploads/PXL_20260616_202304977.jpg'
+        albumArt: './uploads/PXL_20260616_202304977.jpg'
       });
       return;
     }

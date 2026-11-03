@@ -3,11 +3,7 @@
 # Excludes images and node_modules while ensuring zero data loss for memories
 # ==============================================================================
 
-# Images & Media
-*.jpg
-*.jpeg
-*.png
-*.webp
+# Images & Media (generic exclusion)
 *.gif
 *.heic
 *.heif
@@ -18,9 +14,11 @@
 *.mp4
 *.mov
 
-# Keep uploads folder structure via .gitkeep
-uploads/*
-!uploads/.gitkeep
+# Keep uploads folder and images tracked as part of repository
+!uploads/**
+!client/uploads/**
+!uploads/*
+!client/uploads/*
 
 # Dependencies & Logs
 node_modules/

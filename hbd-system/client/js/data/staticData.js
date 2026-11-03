@@ -1,0 +1,381 @@
+/**
+ * Pre-seeded static data for standalone GitHub Pages hosting.
+ * Extracted from store.json and personalConfig.json.
+ */
+
+export const personalConfig = {
+  partnerName: "Rubina",
+  yourName: "Shantanu",
+  greetingSplash: "Hi Rubina, welcome back ❤️",
+  relationshipStartDate: "2026-06-21T00:00:00",
+  birthday: {
+    month: 11,
+    day: 13,
+    title: "Happy Birthday, Rubina! 🎂",
+    letter: "Happy Birthday to the most incredible person in my life. Every day with you is filled with warmth, laughter, and so much love. Here's to celebrating you today, since we began, and every moment in our future!",
+    quote: "In all the world, there is no heart for me like yours. In all the world, there is no love for you like mine."
+  },
+  reasonsToLove: [
+    "You laugh at my jokes no matter how lame they are.",
+    "You already have a nickname for me and I still don't know where it came from.",
+    "You make ordinary errands feel like plans.",
+    "You text back one-word answers, but they always feel meaningful.",
+    "You remember small things I mentioned exactly once.",
+    "You have strong opinions about random gossip, and I find that so amusing.",
+    "You make me want to be better at calling.",
+    "You're so competitive that it makes me want to let you win (sometimes).",
+    "You have a face for every emotion — no filter required.",
+    "You make quiet time feel like the good kind of quiet.",
+    "You've somehow passed my group chat's approval from the first moment.",
+    "You take the last bite off my plate without asking, and I let you.",
+    "You've turned an ordinary weekday into something to look forward to.",
+    "You send me things that made you think of me, completely unprompted.",
+    "You have a whole personality when you're tired or hungry, and it's a good bit.",
+    "You make me laugh at things that genuinely aren't that funny.",
+    "You've already survived meeting my weird side.",
+    "It's been a month and it still doesn't feel like enough time.",
+    "You've ruined other people's cooking for me (pasta).",
+    "You ask great questions in the middle of a movie, and I still try to answer.",
+    "You've never made me feel strange for being a bit much.",
+    "One month in, and you already know how I take my coffee.",
+    "You've single-handedly made me into a professional photographer.",
+    "You're always down to try something new, no matter how weird it is.",
+    "You still get butterflies when I compliment you.",
+    "You're the only person I want to watch reality TV with.",
+    "You make even the most boring tasks feel fun.",
+    "You've learned all my weird quirks and somehow still like me.",
+    "You're the first person I want to tell good news to.",
+    "You've already made me laugh more in a month than I have in years."
+  ],
+  coupons: [
+    { id: "c1", seal: "01", title: "One movie night", hint: "your pick, no vetoes" },
+    { id: "c2", seal: "02", title: "Breakfast in bed", hint: "redeemable any weekend" },
+    { id: "c3", seal: "03", title: "One 'I was right' pass", hint: "use wisely" },
+    { id: "c4", seal: "04", title: "A playlist made for you", hint: "delivered within a week" },
+    { id: "c5", seal: "05", title: "No-phones dinner", hint: "full attention, guaranteed" },
+    { id: "c6", seal: "06", title: "Your choice of restaurant", hint: "I won't complain, this time" }
+  ],
+  quiz: [
+    {
+      q: "Where did we first properly talk?",
+      options: ["Parcafe", "Harrods", "Hyde Park"],
+      correct: 0
+    },
+    {
+      q: "What did I order on our first date?",
+      options: ["Flat white", "Hot Chocolate", "Latte"],
+      correct: 0
+    },
+    {
+      q: "What's my go-to comfort food?",
+      options: ["Cornflakes", "Daal Chawal", "Both"],
+      correct: 2
+    },
+    {
+      q: "What's a song we always sing (I still don't know the lyrics :( )?",
+      options: ["I Really Do...", "Admirin' You", "Winning Speech"],
+      correct: 2
+    }
+  ]
+};
+
+export const initialMemories = [
+  {
+    id: "mem-01",
+    date: "2026-03-31",
+    title: "\"I was planning on cancelling\"",
+    story: "We went to my favourite cafe in the city, Parcafe. I ordered my usual flat white, and I knew right then this was something truly special when I didn't mind that you were late.",
+    location: "Parcafe",
+    photos: [
+      "./uploads/huji-mayfair_1790087083475.jpg"
+    ],
+    song: {
+      id: "6jdOi5U5LBzQrc4c1VT983",
+      uri: "spotify:track:6jdOi5U5LBzQrc4c1VT983",
+      name: "Hold On, We're Going Home",
+      artist: "Drake, Majid Jordan",
+      albumArt: "https://i.scdn.co/image/ab67616d0000b273adfb5909ec66db5fbb4d06c8"
+    }
+  },
+  {
+    id: "mem-03",
+    date: "2026-04-10",
+    title: "Biryani and Storytime",
+    story: "We shared our first biryani together and you told me all about your tattoos. Little did I know you were going to force me to watch Bhojpuri songs right after!",
+    location: "Our favorite dining spot",
+    photos: [],
+    song: {
+      id: "1x0gAzMSpHsS5e6NqKI9eV",
+      uri: "spotify:track:1x0gAzMSpHsS5e6NqKI9eV",
+      name: "You",
+      artist: "Lloyd, Lil Wayne",
+      albumArt: "https://i.scdn.co/image/ab67616d0000b2736fa87c9728bd8acad00dd5bf"
+    }
+  },
+  {
+    id: "mem-04",
+    date: "2026-04-16",
+    title: "Museum dress up",
+    story: "The museum trip was hands-down the highlight of the week. You looked ridiculously good with the old school outfits hehe.",
+    location: "Museum",
+    photos: [],
+    song: {
+      id: "5nCthAh3jt4xKuLJAifAaR",
+      uri: "spotify:track:5nCthAh3jt4xKuLJAifAaR",
+      name: "Harleys In Hawaii",
+      artist: "Katy Perry",
+      albumArt: "https://i.scdn.co/image/ab67616d0000b273f36563773a882c66e3fca58e"
+    }
+  },
+  {
+    id: "mem-05",
+    date: "2026-04-19",
+    title: "The Mini-Me Era",
+    story: "You officially became a mini-me with my oversized hoodie and joggers on awwwww. Best outfit ever.",
+    location: "Richmond Park",
+    photos: [],
+    song: {
+      id: "1yV3sfiCUcz3vYg3A6877I",
+      uri: "spotify:track:1yV3sfiCUcz3vYg3A6877I",
+      name: "Moon After Dark",
+      artist: "MKAstro",
+      albumArt: "https://i.scdn.co/image/ab67616d0000b27322f2bf85d991dee20ee4efd3"
+    }
+  },
+  {
+    id: "mem-06",
+    date: "2026-04-26",
+    title: "Sunday 9am Ferrari Viewer",
+    story: "You dressed like a full Ferrari viewer at 9am on a Sunday morning and I still can't get over how adorable that was lol.",
+    location: "Berkeley Square",
+    photos: [],
+    song: {
+      id: "3NGOL9YK9gIlY1pEvs96rf",
+      uri: "spotify:track:3NGOL9YK9gIlY1pEvs96rf",
+      name: "Only U",
+      artist: "PARTYNEXTDOOR",
+      albumArt: "https://i.scdn.co/image/ab67616d0000b273279b3e89d5c179aeb939f588"
+    }
+  },
+  {
+    id: "mem-07",
+    date: "2026-05-02",
+    title: "\"I love your outfit\"",
+    story: "Dishoom is still overrated but it was all worth it to see you smile like that",
+    location: "Notting Hill",
+    photos: [],
+    song: {
+      id: "6PRFDCNAMLeSZimkPGrKMG",
+      uri: "spotify:track:6PRFDCNAMLeSZimkPGrKMG",
+      name: "5-7",
+      artist: "Karan Aujla, Mxrci",
+      albumArt: "https://i.scdn.co/image/ab67616d0000b273cdca009c4b147e9df31bae4f"
+    }
+  },
+  {
+    id: "mem-08",
+    date: "2026-05-04",
+    title: "Photobooth Madness",
+    story: "Our first photobooth pictures! We also found out what you're like as an interviewer... totally didn't take 3 full takes.",
+    location: "Selfridges",
+    photos: [],
+    song: {
+      id: "7E4EhLK8mG4ORi3QR52r2A",
+      uri: "spotify:track:7E4EhLK8mG4ORi3QR52r2A",
+      name: "You're U Tho",
+      artist: "Karan Aujla, Ikky",
+      albumArt: "https://i.scdn.co/image/ab67616d0000b27389e8f71cb6f3b6cc60944858"
+    }
+  },
+  {
+    id: "mem-09",
+    date: "2026-05-10",
+    title: "Meeting the Friends",
+    story: "You met my friend, Lakks, for the first time and he already loves you more than me! You win over everyone you meet.",
+    location: "Park gathering",
+    photos: [],
+    song: null
+  },
+  {
+    id: "mem-10",
+    date: "2026-05-07",
+    title: "\"I let you win\"",
+    story: "we bowled",
+    location: "Camden",
+    photos: [],
+    song: null
+  },
+  {
+    id: "mem-11",
+    date: "2026-05-25",
+    title: "Next Photoshoot Scout",
+    story: "Still apart for a bit, but scouting our next photoshoot spots. Counting down the seconds.",
+    location: "Scouting London spots",
+    photos: [],
+    song: {
+      id: "6NJ8Z5GDoHe47R6gGX6sLq",
+      uri: "spotify:track:6NJ8Z5GDoHe47R6gGX6sLq",
+      name: "Admirin' You (feat. Preston Pablo)",
+      artist: "Karan Aujla, Ikky, Preston Pablo",
+      albumArt: "https://i.scdn.co/image/ab67616d0000b273777ee30da6f7dfe836bb6535"
+    }
+  },
+  {
+    id: "mem-14",
+    date: "2026-06-14",
+    title: "The hairstylist returns",
+    story: "You already know what this week was about... you are in full charge of my hairstyle from now until forever.\n\nHoly shit I was so nervous to even dare to ask you out despite the whole flower arrangement",
+    location: "Knightsbridge",
+    photos: [],
+    song: {
+      id: "2hnzUVqKBws7Vr0rvrRL1u",
+      uri: "spotify:track:2hnzUVqKBws7Vr0rvrRL1u",
+      name: "Be Mine",
+      artist: "Shubh",
+      albumArt: "https://i.scdn.co/image/ab67616d0000b273f4cfdc2a229631a1d2fc86e5"
+    }
+  },
+  {
+    id: "mem-15",
+    date: "2026-06-08",
+    title: "House Event lessgoooo",
+    story: "I was basically free to dance like an idiot lool",
+    location: "Grossomodo",
+    photos: [],
+    song: {
+      id: "1BJJbSX6muJVF2AK7uH1x4",
+      uri: "spotify:track:1BJJbSX6muJVF2AK7uH1x4",
+      name: "Move",
+      artist: "Adam Port, Stryv, Keinemusik, Orso, Malachiii",
+      albumArt: "https://i.scdn.co/image/ab67616d0000b273a959d221820e650bee1ca487"
+    }
+  },
+  {
+    id: "mem-16",
+    date: "2026-06-16",
+    title: "F1 and free ice cream",
+    story: "Mclaren didn't know what was coming",
+    location: "Oxford Street",
+    photos: [
+      "./uploads/train-hands_1790088551476.jpg"
+    ],
+    song: {
+      id: "3ExgWVPWOQts9RVBkqpdic",
+      uri: "spotify:track:3ExgWVPWOQts9RVBkqpdic",
+      name: "Boyfriend",
+      artist: "Karan Aujla, Ikky",
+      albumArt: "https://i.scdn.co/image/ab67616d0000b27389e8f71cb6f3b6cc60944858"
+    }
+  },
+  {
+    id: "mem-17",
+    date: "2026-07-16",
+    title: "Bridgerton-esque Photoshoot",
+    story: "The day of our regal Bridgerton-esque shoot. Royal vibes and laughs between every single shutter snap.",
+    location: "Regents Park",
+    photos: [
+      "./uploads/20260710_012308.jpg"
+    ],
+    song: null
+  },
+  {
+    id: "mem-18",
+    date: "2026-08-01",
+    title: "The Married Couple Life",
+    story: "We are pretty much acting like a married couple and I wouldn't trade a single second. Cooking together, grocery runs, and constant giggles.",
+    location: "Home sweet home",
+    photos: [
+      "./uploads/PXL_20260618_185655184.jpg"
+    ],
+    song: null
+  },
+  {
+    id: "mem-19",
+    date: "2026-09-21",
+    title: "Best Time of My Life & Happy Birthday!",
+    story: "This has been the best time of my life. Every single day you make me want to be a better man for us. Celebrating your birthday today is the greatest celebration of all.",
+    location: "Everywhere with you",
+    photos: [
+      "./uploads/PXL_20260616_202304977.jpg",
+      "./uploads/PXL_20260701_165604413.jpg"
+    ],
+    song: {
+      name: "Winning Speech",
+      artist: "Karan Aujla",
+      albumArt: "https://i.scdn.co/image/ab67616d0000b273b40cfb6388eeb058d9283e1c",
+      uri: "spotify:track:1vYxhvVqJoxeBq4Xl7U9F6",
+      id: "1vYxhvVqJoxeBq4Xl7U9F6"
+    }
+  },
+  {
+    id: "mem-1790087803707-64esf",
+    date: "2026-04-29",
+    title: "COOKIE DOUGH",
+    story: "Delicious sweetness and our silly banter.",
+    location: "O2",
+    photos: [],
+    song: {
+      id: "5hTl2uxJGd1sbLtovguuuk",
+      uri: "spotify:track:5hTl2uxJGd1sbLtovguuuk",
+      name: "Stars Align (with Drake)",
+      artist: "Majid Jordan, Drake",
+      albumArt: "https://i.scdn.co/image/ab67616d0000b273ecca1386fa4e6b7a947907ef"
+    }
+  },
+  {
+    id: "mem-1790088834277-gjz5y",
+    date: "2026-06-20",
+    title: "The best photoshoot + soft launching",
+    story: "One of my fantasies was holding the love of my life in a photobooth. All my story viewers went wild when they saw the soft launching",
+    location: "Alberts Schloss",
+    photos: [
+      "./uploads/soft-launch.jpg"
+    ],
+    song: {
+      id: "4kVLd059k0S5WGNo8ULoZh",
+      uri: "spotify:track:4kVLd059k0S5WGNo8ULoZh",
+      name: "Making Promises",
+      artist: "Lithe",
+      albumArt: "https://i.scdn.co/image/ab67616d0000b273e1d0ebd0516f87eb7a35d805"
+    }
+  },
+  {
+    id: "mem-1790088966031-w7c1d",
+    date: "2026-06-18",
+    title: "Fit check (clocked it)",
+    story: "The title says it all. You looked breathtaking.",
+    location: "Tower Hill",
+    photos: [
+      "./uploads/blue-happy-dress_1790088980765.jpg",
+      "./uploads/legs_1790088980782.jpg"
+    ],
+    song: {
+      id: "3DK90400cDlV5WUJPraMph",
+      uri: "spotify:track:3DK90400cDlV5WUJPraMph",
+      name: "Ran To Atlanta (feat. Future & Molly Santana)",
+      artist: "Drake, Future, Molly Santana",
+      albumArt: "https://i.scdn.co/image/ab67616d0000b273fe9d3ab9adb1d3b59835b81c"
+    }
+  }
+];
+
+export const VALID_USERS = [
+  {
+    username: "rubina",
+    password: "love123",
+    role: "viewer",
+    name: "Rubina"
+  },
+  {
+    username: "love",
+    password: "password123",
+    role: "admin",
+    name: "Shantanu"
+  },
+  {
+    username: "shantanu",
+    password: "password123",
+    role: "admin",
+    name: "Shantanu"
+  }
+];

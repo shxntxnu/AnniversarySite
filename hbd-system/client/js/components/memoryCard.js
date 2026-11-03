@@ -1,4 +1,5 @@
 import { formatDate } from '../utils/dateUtils.js';
+import { resolvePhotoUrl } from '../utils/paths.js';
 
 /**
  * Polaroid Memory Card Component
@@ -12,9 +13,10 @@ export function createMemoryCard(memory, onSelect) {
   const rot = (Math.random() * 3 - 1.5).toFixed(1);
   card.style.transform = `rotate(${rot}deg)`;
 
-  const coverPhoto = (memory.photos && memory.photos.length > 0)
+  const rawPhoto = (memory.photos && memory.photos.length > 0)
     ? memory.photos[0]
-    : '/uploads/PXL_20260616_202304977.jpg';
+    : './uploads/PXL_20260616_202304977.jpg';
+  const coverPhoto = resolvePhotoUrl(rawPhoto);
 
   const hasSong = Boolean(memory.song);
 

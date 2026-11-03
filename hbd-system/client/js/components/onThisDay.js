@@ -1,4 +1,5 @@
 import { formatDate } from '../utils/dateUtils.js';
+import { resolvePhotoUrl } from '../utils/paths.js';
 
 /**
  * "On This Day" Flashback Card
@@ -10,9 +11,10 @@ export function renderOnThisDay(container, memories, onSelectMemory) {
   }
 
   const memory = memories[0]; // Featured flashback memory
-  const photo = (memory.photos && memory.photos.length > 0)
+  const rawPhoto = (memory.photos && memory.photos.length > 0)
     ? memory.photos[0]
-    : '/uploads/PXL_20260616_202304977.jpg';
+    : './uploads/PXL_20260616_202304977.jpg';
+  const photo = resolvePhotoUrl(rawPhoto);
 
   container.innerHTML = `
     <div class="on-this-day-card">
@@ -23,7 +25,7 @@ export function renderOnThisDay(container, memories, onSelectMemory) {
 
         <div style="flex: 1; min-width: 240px;">
           <div class="on-this-day-badge">
-            <span>✨ Flashback · On This Day</span>
+            <span>✨ Flashback · Cherished Memory</span>
           </div>
           <h3 style="font-family: var(--font-hand); font-size: 1.8rem; margin-bottom: 4px; color: var(--plum);">
             ${memory.title}

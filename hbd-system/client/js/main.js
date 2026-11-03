@@ -7,26 +7,24 @@ import { renderTimelineView } from './components/timelineView.js';
 import { openMemoryDetail } from './components/memoryDetail.js';
 import { openMemoryModal } from './components/memoryModal.js';
 import { renderBirthdaySection } from './components/birthdayLock.js';
+import { renderInteractiveExtras } from './components/interactiveExtras.js';
 import { openSettingsModal } from './components/settingsModal.js';
 import { showToast } from './components/toast.js';
 
 const appEl = document.getElementById('app');
 
 /**
- * Initialize application
+ * Initialize application (100% Static Mode)
  */
 async function initApp() {
-  // Check for Spotify query params
+  // Check for Spotify query params if redirected
   const urlParams = new URLSearchParams(window.location.search);
   if (urlParams.has('spotify_connected')) {
     showToast('Spotify connected successfully! 🎶', 'success');
     window.history.replaceState({}, document.title, window.location.pathname);
-  } else if (urlParams.has('spotify_error')) {
-    showToast(`Spotify connection error: ${urlParams.get('spotify_error')}`, 'error');
-    window.history.replaceState({}, document.title, window.location.pathname);
   }
 
-  // Verify active session
+  // Verify active stored session
   try {
     const res = await api.getMe();
     if (res.success && res.user) {
@@ -75,6 +73,7 @@ async function loadDashboard() {
       <div id="birthday-slot"></div>
       <div id="on-this-day-slot"></div>
       <div id="timeline-slot"></div>
+      <div id="extras-slot"></div>
     </div>
     ${
       isAdmin
@@ -101,20 +100,21 @@ async function refreshMemoriesAndStats() {
   const birthdaySlot = document.getElementById('birthday-slot');
   const onThisDaySlot = document.getElementById('on-this-day-slot');
   const timelineSlot = document.getElementById('timeline-slot');
+  const extrasSlot = document.getElementById('extras-slot');
 
   if (!statsSlot) return;
 
-  // Render Header & Counters
+  // Render Header & Live Counters
   renderStatsHeader(statsSlot, {
     onAddMemory: handleAddMemory,
     onLogout: handleLogout
   });
 
-  // Render Birthday Reveal Section
+  // Render Birthday Reveal Section (Date-gated to Rubina's birthday, Nov 13)
   renderBirthdaySection(birthdaySlot);
 
   try {
-    // Fetch memories & flashback in parallel
+    // Fetch memories & flashback from static engine
     const [memoriesRes, otdRes] = await Promise.all([
       api.getMemories('asc'),
       api.getOnThisDay()
@@ -125,15 +125,21 @@ async function refreshMemoriesAndStats() {
 
     state.set({ memories, onThisDayMemories: otdMemories });
 
-    // Render "On this day" flashback
+    // Render "On this day" / featured flashback
     renderOnThisDay(onThisDaySlot, otdMemories, handleSelectMemory);
 
     // Render Timeline
     renderTimelineView(timelineSlot, memories, handleSelectMemory);
+
+    // Render Interactive Keepsakes (Reasons, Coupons, Quiz)
+    if (extrasSlot) {
+      renderInteractiveExtras(extrasSlot);
+    }
   } catch (err) {
+    console.error('Error rendering dashboard:', err);
     timelineSlot.innerHTML = `
       <div style="text-align: center; padding: 40px; color: var(--rose-dark);">
-        <p>Could not load memories. Please verify your connection.</p>
+        <p>Could not load memories. Please refresh the page.</p>
       </div>
     `;
   }
@@ -184,7 +190,7 @@ async function handleLogout() {
   showLogin();
 }
 
-// Global Event: Re-calculate live elements on tab focus (Section 5)
+// Global Event: Re-calculate live elements on tab focus
 window.addEventListener('focus', () => {
   if (state.get().isAuthenticated) {
     const statsSlot = document.getElementById('stats-slot');
